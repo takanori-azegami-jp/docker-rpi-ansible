@@ -1,8 +1,9 @@
 # DockerBuild-RaspberryPi-Ansible
 RaspberryPi(64bit)にDockerでAnsibleを構築
 
-```ps
-docker run -v "${PWD}":/work:ro -v ~/.ansible/roles:/root/.ansible/roles -v ~/.ssh:/root/.ssh:ro --rm satken2/ansible ansible-playbook playbook.yml
+```shell
+$ docker build ./
+$ docker run -v "${PWD}":/work:ro -v ~/.ansible/roles:/root/.ansible/roles -v ~/.ssh:/root/.ssh:ro --rm satken2/ansible ansible-playbook playbook.yml
 ```
 
 ## 参考サイト
