@@ -4,13 +4,13 @@ RaspberryPi(64bit)にDockerでAnsibleを構築
 ## Dockerビルド
 Dockerfileのあるフォルダに移動して
 ```shell
-$ docker image build -t helloworld/ansible ./
+$ docker-compose up -d --build
 ```
 
 ## Playbook実行
 Playbookのあるフォルダに移動して
 ```shell
-$ docker run -v "${PWD}":/work:ro -v ~/.ansible/roles:/root/.ansible/roles -v ~/.ssh:/root/.ssh:ro --rm helloworld/ansible ansible-playbook helloworld.yml
+$ docker exec [コンテナid] ansible-playbook helloworld.yml
 ```
 
 ## 参考サイト

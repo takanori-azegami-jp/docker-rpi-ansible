@@ -1,10 +1,16 @@
-FROM python:3.9.11-bullseye
+FROM python:3.9.12-bullseye
 
-RUN pip install pip --upgrade
-RUN pip install ansible
+RUN apt-get update && \
+	apt-get install -y vim
 
-RUN apt-get update -y && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  sshpass
+WORKDIR /tmp
 
-WORKDIR /work
+# アップデート： pip
+RUN pip install --upgrade pip
+
+# インストール：Ansible
+COPY ./requirements.txt /tmp/
+RUN if [ -f "requirements.txt" ]; then pip install -r requirements.txt && rm requirements.txt*; fi
+
+# フォルダ作成
+RUN mkdir /ansible
