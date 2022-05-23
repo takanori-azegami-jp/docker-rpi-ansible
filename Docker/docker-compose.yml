@@ -10,15 +10,7 @@ services:
     tty: true
     restart: always
     volumes:
-      - ansible:/opt/ansible
+      - type: bind
+        source: ./
+        target: /opt/ansible
     working_dir: /opt/ansible
-    networks:
-      - default
-volumes:
-  ansible:
-    driver: local
-  serverspec:
-    driver: local
-networks:
-  default:
-    name: ansible_network
