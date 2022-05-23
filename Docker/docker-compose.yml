@@ -10,7 +10,11 @@ services:
     tty: true
     restart: always
     volumes:
-      - type: bind
-        source: ./
-        target: /opt/ansible
+      - ansible:/opt/ansible
     working_dir: /opt/ansible
+volumes:
+  ansible:
+    driver_opts:
+      type: none
+      device: ./
+      o: bind
