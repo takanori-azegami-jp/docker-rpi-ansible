@@ -1,6 +1,5 @@
 version: "3.8"
 services:
-  # ansible実行環境
   ansible:
     build:
       context: ./
@@ -9,11 +8,17 @@ services:
     container_name: ansible
     hostname: ansible
     tty: true
+    restart: always
     volumes:
-      - type: bind
-        source: ./
-        target: /ansible
-    working_dir: /ansible
+      - ansible:/opt/ansible
+    working_dir: /opt/ansible
+    networks:
+      - default
 volumes:
-  ansible_data:
+  ansible:
     driver: local
+  serverspec:
+    driver: local
+networks:
+  default:
+    name: ansible_network
