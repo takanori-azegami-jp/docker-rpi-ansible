@@ -15,3 +15,5 @@ RUN if [ -f "requirements.txt" ]; then pip install -r requirements.txt && rm req
 
 # フォルダ作成
 RUN mkdir /opt/ansible
+
+WORKDIR /opt/ansible

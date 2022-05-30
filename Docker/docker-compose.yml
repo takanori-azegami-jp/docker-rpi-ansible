@@ -7,6 +7,8 @@ services:
     image: ansible
     container_name: ansible
     hostname: ansible
+    environment:
+      TZ: Asia/Tokyo
     tty: true
     restart: always
     volumes:
