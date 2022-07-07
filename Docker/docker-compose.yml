@@ -16,7 +16,4 @@ services:
     working_dir: /opt/ansible
 volumes:
   ansible:
-    driver_opts:
-      type: none
-      device: ./
-      o: bind
+    driver: local
