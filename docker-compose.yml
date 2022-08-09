@@ -3,7 +3,7 @@ services:
   ansible:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: dockerfile-ansible
     image: ansible
     container_name: ansible
     hostname: ansible
